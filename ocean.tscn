@@ -5,9 +5,5 @@
 [node name="Ocean" type="Node2D" unique_id=1879437640]
 
 [node name="Submarine" parent="." unique_id=579768933 instance=ExtResource("1_tiovm")]
-<<<<<<< HEAD
 position = Vector2(961, 549)
-=======
-position = Vector2(570, 327)
->>>>>>> 9f1fbaead46009aee4990b5a10ff7c3f2bb42625
 input_pickable = true

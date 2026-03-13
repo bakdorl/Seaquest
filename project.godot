@@ -15,14 +15,11 @@ run/main_scene="res://ocean.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
-<<<<<<< HEAD
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 
-=======
->>>>>>> 9f1fbaead46009aee4990b5a10ff7c3f2bb42625
 [input]
 
 ui_left={
