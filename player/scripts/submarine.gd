@@ -25,3 +25,7 @@ func _physics_process(_delta: float) -> void:
 		velocity = Vector2.ZERO
 
 	move_and_slide()
+	
+	position.x = clamp(global_position.x, 250, 1670)
+	position.y = clamp(global_position.y, 230, 800)
+	

@@ -1,9 +1,17 @@
 [gd_scene format=3 uid="uid://b36ojtcn8h5ve"]
 
 [ext_resource type="PackedScene" uid="uid://btebci5tthalf" path="res://submarine.tscn" id="1_tiovm"]
+[ext_resource type="Texture2D" uid="uid://mwyyccx6ah88" path="res://background/Ilustração_Sem_Título.png" id="2_j38dg"]
 
 [node name="Ocean" type="Node2D" unique_id=1879437640]
 
 [node name="Submarine" parent="." unique_id=579768933 instance=ExtResource("1_tiovm")]
 position = Vector2(961, 549)
 input_pickable = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1733076593]
+layer = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=657863596]
+position = Vector2(960, 540)
+texture = ExtResource("2_j38dg")
