@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
+func _ready():
+	$AnimatedSprite2D.play
 
 func _physics_process(_delta: float) -> void:
 	
@@ -10,10 +12,12 @@ func _physics_process(_delta: float) -> void:
 	
 	if Input.is_action_pressed("right"):
 		direction.x += 1
-		$Sprite2D.flip_h = false
+		$AnimatedSprite2D.flip_h = false
+		#$Sprite2D.flip_h = false
 	if Input.is_action_pressed("left"):
 		direction.x -= 1
-		$Sprite2D.flip_h = true
+		$AnimatedSprite2D.flip_h = true
+		#$Sprite2D.flip_h = true
 	if Input.is_action_pressed("down"):
 		direction.y += 1
 	if Input.is_action_pressed("up"):
@@ -27,5 +31,5 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	
 	position.x = clamp(global_position.x, 250, 1670)
-	position.y = clamp(global_position.y, 230, 800)
+	position.y = clamp(global_position.y, 255, 800)
 	

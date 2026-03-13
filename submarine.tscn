@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://btbvv4gvjgtjv" path="res://player/sprites/Sprite subs.png" id="2_k4f85"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjqlq"]
+size = Vector2(170, 53)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k4f85"]
 atlas = ExtResource("2_k4f85")
@@ -39,12 +40,10 @@ motion_mode = 1
 script = ExtResource("1_k4f85")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1115819331]
+position = Vector2(-5, -3.5)
 shape = SubResource("RectangleShape2D_kjqlq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1645864602]
 sprite_frames = SubResource("SpriteFrames_k4f85")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=270003891]
-texture = ExtResource("2_k4f85")
-hframes = 3
-frame = 1
+frame = 2
+frame_progress = 0.42356876
