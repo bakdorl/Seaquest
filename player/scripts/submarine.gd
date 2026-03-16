@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 
 func _ready():
-	$AnimatedSprite2D.play
+	$AnimatedSprite2D.play("default")
 
 func _physics_process(_delta: float) -> void:
 	
