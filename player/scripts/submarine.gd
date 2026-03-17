@@ -2,10 +2,25 @@ extends CharacterBody2D
 
 @onready var projectile_scene = load ("res://projectile_scene.tscn")
 
+signal oxygen_changed(value)
+signal submarine_exploded
+		
 const SPEED = 450.0
 var projectile_direction = Vector2(1.0, 0.0) 
+var max_oxygen: float = 100.0
+var current_oxygen: float = 100.0
+var oxygen_speed: float = 1.666 
 func _ready():
 	$AnimatedSprite2D.play("default")
+
+#func _process(delta):
+		#current_oxygen -= oxygen_speed * delta
+		#oxygen_changed.emit(current_oxygen)
+		#if current_oxygen <= 0
+		#explode()
+		
+	#func explode ():
+
 
 func _physics_process(_delta: float) -> void:
 	
@@ -38,6 +53,14 @@ func _physics_process(_delta: float) -> void:
 func _process(delta):
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
+		pass
+		
+	current_oxygen -= oxygen_speed * delta
+	oxygen_changed.emit(current_oxygen)
+	#if current_oxygen <= 0
+		#func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+			#queue_free()
+			#pass
 
 func shoot():
 	var projectile = projectile_scene.instantiate()
@@ -45,6 +68,9 @@ func shoot():
 	projectile.direction.x = projectile_direction.x
 	get_tree().current_scene.add_child(projectile)
 	
+	
+	
+		
 	
 	
 	

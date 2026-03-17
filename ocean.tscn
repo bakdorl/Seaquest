@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://btebci5tthalf" path="res://submarine.tscn" id="1_tiovm"]
 [ext_resource type="Texture2D" uid="uid://mwyyccx6ah88" path="res://background/Ilustração_Sem_Título.png" id="2_j38dg"]
 [ext_resource type="PackedScene" uid="uid://dfhi7x6kg1gry" path="res://projectile_scene.tscn" id="3_nb2vx"]
+[ext_resource type="PackedScene" uid="uid://b556op5qq7hop" path="res://oxygen_ui.tscn" id="4_bwgqs"]
 
 [node name="Ocean" type="Node2D" unique_id=1879437640]
 
@@ -11,11 +12,17 @@ z_index = 1
 position = Vector2(961, 549)
 input_pickable = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1733076593]
+[node name="background" type="CanvasLayer" parent="." unique_id=1733076593]
 layer = -1
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=657863596]
+[node name="Sprite2D" type="Sprite2D" parent="background" unique_id=657863596]
 position = Vector2(960, 540)
 texture = ExtResource("2_j38dg")
 
 [node name="projectile" parent="." unique_id=314485621 instance=ExtResource("3_nb2vx")]
+
+[node name="oxygen_ui" parent="." unique_id=1118615531 instance=ExtResource("4_bwgqs")]
+
+[connection signal="oxygen_changed" from="Submarine" to="oxygen_ui/UI/TextureProgressBar" method="_on_submarine_oxygen_changed"]
+
+[editable path="oxygen_ui"]
