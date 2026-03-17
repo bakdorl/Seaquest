@@ -47,3 +47,6 @@ shape = SubResource("RectangleShape2D_kjqlq")
 sprite_frames = SubResource("SpriteFrames_k4f85")
 frame = 2
 frame_progress = 0.42356876
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=29690212]
+position = Vector2(61, 19)

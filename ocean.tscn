@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://btebci5tthalf" path="res://submarine.tscn" id="1_tiovm"]
 [ext_resource type="Texture2D" uid="uid://mwyyccx6ah88" path="res://background/Ilustração_Sem_Título.png" id="2_j38dg"]
+[ext_resource type="PackedScene" uid="uid://dfhi7x6kg1gry" path="res://projectile_scene.tscn" id="3_nb2vx"]
 
 [node name="Ocean" type="Node2D" unique_id=1879437640]
 
@@ -15,3 +16,5 @@ layer = -1
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=657863596]
 position = Vector2(960, 540)
 texture = ExtResource("2_j38dg")
+
+[node name="projectile" parent="." unique_id=314485621 instance=ExtResource("3_nb2vx")]

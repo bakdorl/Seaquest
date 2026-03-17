@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 450.0
 
 func _ready():
 	$AnimatedSprite2D.play("default")
@@ -33,3 +33,17 @@ func _physics_process(_delta: float) -> void:
 	position.x = clamp(global_position.x, 250, 1670)
 	position.y = clamp(global_position.y, 255, 800)
 	
+	
+	
+
+
+@export var projectile_scene: PackedScene
+
+func _process(delta):
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
+
+func shoot():
+	var projectile = projectile_scene.instantiate()
+	projectile.position = $Muzzle.global_position
+	get_tree().current_scene.add_child(projectile)
