@@ -1,6 +1,12 @@
 extends Area2D
 
-@export var speed = 400
+@export var speed = 1000 
+var direction = Vector2.ZERO
 
 func _process(delta):
-	position.x += speed * delta
+	position.x += speed * delta * direction.x
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	queue_free()
+	pass
