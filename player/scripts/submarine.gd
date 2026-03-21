@@ -24,7 +24,7 @@ func _physics_process(_delta: float) -> void:
 		direction.x += 1
 		projectile_direction.x = direction.x
 		$AnimatedSprite2D.flip_h = false
-	if Input.is_action_pressed("left"):
+	elif Input.is_action_pressed("left"):
 		direction.x -= 1
 		projectile_direction.x = direction.x
 		$AnimatedSprite2D.flip_h = true
