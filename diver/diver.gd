@@ -2,7 +2,7 @@ extends Area2D
 
 
 const SWIM_SPEED = 100.0
-var direction = 1 # 1 for Right, -1 for Left
+var direction = 1 
 
 func _process(delta):
 	position.x += SWIM_SPEED * direction * delta
