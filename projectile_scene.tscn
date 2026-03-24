@@ -1,21 +1,21 @@
 [gd_scene format=3 uid="uid://dfhi7x6kg1gry"]
 
 [ext_resource type="Script" uid="uid://c2g8caax1c80h" path="res://projectile/projectile.gd" id="1_ggcku"]
-[ext_resource type="Texture2D" uid="uid://dijhxshgjsfgc" path="res://projectile/Captura de tela 2026-03-11 144653.png" id="2_dkkfy"]
+[ext_resource type="Texture2D" uid="uid://b0blb85tjoog7" path="res://projectile/Projetile.png" id="2_dkkfy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dkkfy"]
-size = Vector2(72, 8)
+size = Vector2(47, 10)
 
 [node name="projectile" type="Area2D" unique_id=314485621]
 script = ExtResource("1_ggcku")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=212251101]
-position = Vector2(0.75, 3.25)
-scale = Vector2(0.25609756, 0.07943925)
+position = Vector2(-1.1920929e-06, 3.000001)
+scale = Vector2(1.4999999, 1)
 texture = ExtResource("2_dkkfy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=265021841]
-position = Vector2(-0.25, 3.25)
+position = Vector2(-0.5, 3)
 shape = SubResource("RectangleShape2D_dkkfy")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1039626323]

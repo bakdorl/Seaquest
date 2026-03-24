@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dijhxshgjsfgc"
-path="res://.godot/imported/Captura de tela 2026-03-11 144653.png-bca678b9417381db24dc373de9c62428.ctex"
+uid="uid://bson4kbkuptkn"
+path="res://.godot/imported/Diver.png-ab85f3275dacbb8a6baef77b7a0fed09.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://projectile/Captura de tela 2026-03-11 144653.png"
-dest_files=["res://.godot/imported/Captura de tela 2026-03-11 144653.png-bca678b9417381db24dc373de9c62428.ctex"]
+source_file="res://diver/Diver.png"
+dest_files=["res://.godot/imported/Diver.png-ab85f3275dacbb8a6baef77b7a0fed09.ctex"]
 
 [params]
 
