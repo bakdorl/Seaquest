@@ -5,49 +5,13 @@ extends Node2D
 
 @onready var shark_scene = preload("res://shark.tscn")
 @onready var enemysub_scene = preload("res://enemysub.tscn")
-const LANES = [350, 450, 550, 650]
+const LANES = [345, 490, 635, 780] #[350, 450, 550, 650]
 
 
 var lane_active = [false, false, false, false]
 
 func _ready():
 	spawn_logic_loop()
-
-#func spawn_logic_loop():
-	#var available_indices = []
-	#for i in range(4):
-		#if not lane_active[i]:
-			#available_indices.append(i)
-	#available_indices.shuffle()
-	#var max_to_pick = min(available_indices.size(), randi_range(1, 2)) 
-	#for i in range(max_to_pick):
-		#var idx = available_indices[i]
-		#process_lane_spawn(idx) 
-	#await get_tree().create_timer(randf_range(5.0, 8.0)).timeout
-	#spawn_logic_loop()
-#
-#
-#func process_lane_spawn(lane_idx):
-	#lane_active[lane_idx] = true
-	#var y_pos = LANES[lane_idx]
-	#var dir = 1 if randf() > 0.5 else -1
-	#var spawn_x = 200 if dir == 1 else 1720
-	#var enemy_type = shark_scene if randf() > 0.5 else enemysub_scene
-	#var count = randi_range(1, 3)
-	#for i in range(count):
-		#create_enemy(enemy_type, spawn_x, y_pos, dir)
-		#await get_tree().create_timer(0.8).timeout
-	#await get_tree().create_timer(2.0).timeout
-	#lane_active[lane_idx] = false
-#
-#func create_enemy(scene, x, y, dir):
-	#var e = scene.instantiate()
-	#e.position = Vector2(x, y)
-	#if "direction" in e:
-		#e.direction = dir
-	#add_child(e)
-	
-	
 	
 func spawn_logic_loop():
 	var available_indices = []
@@ -82,7 +46,6 @@ func process_lane_spawn(lane_idx):
 		await get_tree().create_timer(0.8).timeout
 	await get_tree().create_timer(5.0).timeout
 	lane_active[lane_idx] = false
-	
 	
 func create_enemy(scene, x, y, dir):
 	var e = scene.instantiate()
