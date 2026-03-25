@@ -104,6 +104,8 @@ func _on_collection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("divers"):
 		pick_up_diver()
 		area.queue_free()
+	if area.is_in_group("enemies"):
+		explode()
 	
 func refill_oxygen(delta): 
 	current_oxygen += (oxygen_speed * 8) * delta

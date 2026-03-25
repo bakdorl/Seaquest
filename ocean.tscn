@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://b556op5qq7hop" path="res://oxygen_ui.tscn" id="4_bwgqs"]
 [ext_resource type="Script" uid="uid://dmyk7r82ddd4a" path="res://diver/diver.gd" id="5_n3fli"]
 [ext_resource type="Texture2D" uid="uid://bson4kbkuptkn" path="res://diver/Diver.png" id="6_n3fli"]
+[ext_resource type="PackedScene" uid="uid://cpcarmow0byaj" path="res://shark.tscn" id="7_06qne"]
+[ext_resource type="Script" uid="uid://1wrbeenktfmd" path="res://spawn_manager.gd" id="9_nrb0v"]
+[ext_resource type="PackedScene" uid="uid://byhnwhm3b0ckx" path="res://enemysub.tscn" id="9_v5bp3"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_06qne"]
-radius = 31.0
-height = 66.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06qne"]
+size = Vector2(94.44104, 34.750336)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qijwg"]
 atlas = ExtResource("6_n3fli")
@@ -84,13 +86,23 @@ position = Vector2(624, 432)
 script = ExtResource("5_n3fli")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="diver" unique_id=574258854]
-shape = SubResource("CapsuleShape2D_06qne")
+position = Vector2(-6.068054, -4.8728943)
+rotation = -0.41358843
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_06qne")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="diver" unique_id=1738389220]
 sprite_frames = SubResource("SpriteFrames_nrb0v")
 animation = &"defaultdiver"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="diver" unique_id=270189707]
+
+[node name="shark" parent="." unique_id=1477438915 instance=ExtResource("7_06qne")]
+
+[node name="SpawnManager" type="Node2D" parent="." unique_id=1179353335]
+script = ExtResource("9_nrb0v")
+
+[node name="enemysub" parent="." unique_id=1448156138 instance=ExtResource("9_v5bp3")]
 
 [connection signal="oxygen_changed" from="Submarine" to="oxygen_ui/UI/TextureProgressBar" method="_on_submarine_oxygen_changed"]
 [connection signal="screen_exited" from="diver/VisibleOnScreenNotifier2D" to="diver" method="_on_visible_on_screen_notifier_2d_screen_exited"]
