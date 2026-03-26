@@ -28,7 +28,7 @@ func process_lane_spawn(lane_idx):
 	lane_active[lane_idx] = true
 	var y_pos = LANES[lane_idx]
 	var dir = 1 if randf() > 0.5 else -1
-	var spawn_x = 200 if dir == 1 else 1720
+	var spawn_x = 10 if dir == 1 else 1999
 	var enemy_type = shark_scene if randf() > 0.5 else enemysub_scene
 	var count = 1
 	var roll = randf()
