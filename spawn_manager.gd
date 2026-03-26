@@ -1,11 +1,8 @@
-
-
-
 extends Node2D
 
 @onready var shark_scene = preload("res://shark.tscn")
 @onready var enemysub_scene = preload("res://enemysub.tscn")
-const LANES = [345, 490, 635, 780] #[350, 450, 550, 650]
+const LANES = [345, 490, 635, 780] 
 
 
 var lane_active = [false, false, false, false]
@@ -53,3 +50,5 @@ func create_enemy(scene, x, y, dir):
 	if "direction" in e:
 		e.direction = dir
 	add_child(e)
+	
+	

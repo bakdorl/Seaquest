@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cpcarmow0byaj" path="res://shark.tscn" id="7_06qne"]
 [ext_resource type="Script" uid="uid://1wrbeenktfmd" path="res://spawn_manager.gd" id="9_nrb0v"]
 [ext_resource type="PackedScene" uid="uid://byhnwhm3b0ckx" path="res://enemysub.tscn" id="9_v5bp3"]
+[ext_resource type="PackedScene" uid="uid://bjwx1ipcmh5sv" path="res://area_2d.tscn" id="10_v5bp3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_06qne"]
 size = Vector2(94.44104, 34.750336)
@@ -103,6 +104,8 @@ animation = &"defaultdiver"
 script = ExtResource("9_nrb0v")
 
 [node name="enemysub" parent="." unique_id=1448156138 instance=ExtResource("9_v5bp3")]
+
+[node name="projectileenemy" parent="." unique_id=1584864070 instance=ExtResource("10_v5bp3")]
 
 [connection signal="oxygen_changed" from="Submarine" to="oxygen_ui/UI/TextureProgressBar" method="_on_submarine_oxygen_changed"]
 [connection signal="screen_exited" from="diver/VisibleOnScreenNotifier2D" to="diver" method="_on_visible_on_screen_notifier_2d_screen_exited"]

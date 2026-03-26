@@ -106,6 +106,8 @@ func _on_collection_area_area_entered(area: Area2D) -> void:
 		area.queue_free()
 	if area.is_in_group("enemies"):
 		explode()
+	if area.is_in_group("ProjectileEnemy"):
+		explode()
 	
 func refill_oxygen(delta): 
 	current_oxygen += (oxygen_speed * 8) * delta
