@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://1wrbeenktfmd" path="res://spawn_manager.gd" id="9_nrb0v"]
 [ext_resource type="PackedScene" uid="uid://byhnwhm3b0ckx" path="res://enemysub.tscn" id="9_v5bp3"]
 [ext_resource type="PackedScene" uid="uid://bjwx1ipcmh5sv" path="res://area_2d.tscn" id="10_v5bp3"]
+[ext_resource type="PackedScene" uid="uid://dwhxcn7bahe22" path="res://background_details.tscn" id="11_1ixhq"]
 [ext_resource type="PackedScene" uid="uid://ctc0ixokldi6e" path="res://enemysub_two.tscn" id="11_xgj7f"]
 
 [node name="Ocean" type="Node2D" unique_id=1879437640]
@@ -30,7 +31,7 @@ texture = ExtResource("2_j38dg")
 [node name="oxygen_ui" parent="." unique_id=1118615531 instance=ExtResource("4_bwgqs")]
 
 [node name="diver" parent="." unique_id=2020783172 instance=ExtResource("5_v5bp3")]
-position = Vector2(624, 432)
+position = Vector2(624, 502)
 
 [node name="shark" parent="." unique_id=1477438915 instance=ExtResource("7_06qne")]
 
@@ -42,6 +43,8 @@ script = ExtResource("9_nrb0v")
 [node name="projectileenemy" parent="." unique_id=1584864070 instance=ExtResource("10_v5bp3")]
 
 [node name="enemysub_two" parent="." unique_id=1871379930 instance=ExtResource("11_xgj7f")]
+
+[node name="background_details" parent="." unique_id=934280213 instance=ExtResource("11_1ixhq")]
 
 [connection signal="oxygen_changed" from="Submarine" to="oxygen_ui/UI/TextureProgressBar" method="_on_submarine_oxygen_changed"]
 
