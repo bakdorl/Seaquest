@@ -78,7 +78,6 @@ func _process(delta):
 	
 	current_oxygen = clamp(current_oxygen, 0, max_oxygen)
 	oxygen_changed.emit(current_oxygen)
-	print(current_oxygen)
 	
 	if current_oxygen <= 0:
 		explode()

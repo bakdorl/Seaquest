@@ -4,66 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://mwyyccx6ah88" path="res://background/Ilustração_Sem_Título.png" id="2_j38dg"]
 [ext_resource type="PackedScene" uid="uid://dfhi7x6kg1gry" path="res://projectile_scene.tscn" id="3_nb2vx"]
 [ext_resource type="PackedScene" uid="uid://b556op5qq7hop" path="res://oxygen_ui.tscn" id="4_bwgqs"]
-[ext_resource type="Script" uid="uid://dmyk7r82ddd4a" path="res://diver/diver.gd" id="5_n3fli"]
-[ext_resource type="Texture2D" uid="uid://bson4kbkuptkn" path="res://diver/Diver.png" id="6_n3fli"]
+[ext_resource type="PackedScene" uid="uid://ds1w6wgqg8pqv" path="res://diver.tscn" id="5_v5bp3"]
 [ext_resource type="PackedScene" uid="uid://cpcarmow0byaj" path="res://shark.tscn" id="7_06qne"]
 [ext_resource type="Script" uid="uid://1wrbeenktfmd" path="res://spawn_manager.gd" id="9_nrb0v"]
 [ext_resource type="PackedScene" uid="uid://byhnwhm3b0ckx" path="res://enemysub.tscn" id="9_v5bp3"]
 [ext_resource type="PackedScene" uid="uid://bjwx1ipcmh5sv" path="res://area_2d.tscn" id="10_v5bp3"]
 [ext_resource type="PackedScene" uid="uid://ctc0ixokldi6e" path="res://enemysub_two.tscn" id="11_xgj7f"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_06qne"]
-size = Vector2(94.44104, 34.750336)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qijwg"]
-atlas = ExtResource("6_n3fli")
-region = Rect2(0, 0, 135, 91)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_06qne"]
-atlas = ExtResource("6_n3fli")
-region = Rect2(135, 0, 135, 91)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nrb0v"]
-atlas = ExtResource("6_n3fli")
-region = Rect2(270, 0, 135, 91)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v5bp3"]
-atlas = ExtResource("6_n3fli")
-region = Rect2(0, 91, 135, 91)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xgj7f"]
-atlas = ExtResource("6_n3fli")
-region = Rect2(135, 91, 135, 91)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ixhq"]
-atlas = ExtResource("6_n3fli")
-region = Rect2(270, 91, 135, 91)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_nrb0v"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qijwg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_06qne")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nrb0v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v5bp3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xgj7f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1ixhq")
-}],
-"loop": true,
-"name": &"defaultdiver",
-"speed": 5.0
-}]
 
 [node name="Ocean" type="Node2D" unique_id=1879437640]
 
@@ -83,21 +29,8 @@ texture = ExtResource("2_j38dg")
 
 [node name="oxygen_ui" parent="." unique_id=1118615531 instance=ExtResource("4_bwgqs")]
 
-[node name="diver" type="Area2D" parent="." unique_id=1801041173 groups=["divers"]]
+[node name="diver" parent="." unique_id=2020783172 instance=ExtResource("5_v5bp3")]
 position = Vector2(624, 432)
-script = ExtResource("5_n3fli")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="diver" unique_id=574258854]
-position = Vector2(-6.068054, -4.8728943)
-rotation = -0.41358843
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_06qne")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="diver" unique_id=1738389220]
-sprite_frames = SubResource("SpriteFrames_nrb0v")
-animation = &"defaultdiver"
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="diver" unique_id=270189707]
 
 [node name="shark" parent="." unique_id=1477438915 instance=ExtResource("7_06qne")]
 
@@ -111,6 +44,5 @@ script = ExtResource("9_nrb0v")
 [node name="enemysub_two" parent="." unique_id=1871379930 instance=ExtResource("11_xgj7f")]
 
 [connection signal="oxygen_changed" from="Submarine" to="oxygen_ui/UI/TextureProgressBar" method="_on_submarine_oxygen_changed"]
-[connection signal="screen_exited" from="diver/VisibleOnScreenNotifier2D" to="diver" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 
 [editable path="oxygen_ui"]
