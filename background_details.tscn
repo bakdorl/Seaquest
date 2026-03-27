@@ -200,7 +200,7 @@ position = Vector2(956, 274)
 sprite_frames = SubResource("SpriteFrames_v4vv0")
 animation = &"defaultagua"
 autoplay = "defaultagua"
-frame_progress = 0.85473573
+frame_progress = 0.68022823
 
 [node name="frame" type="Sprite2D" parent="." unique_id=1598484936]
 position = Vector2(960, 539)

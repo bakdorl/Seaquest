@@ -27,7 +27,7 @@ func spawn_logic_loop():
 			process_lane_spawn(idx) 
 	if not surface_active and randf() < 0.15: 
 		process_surface_spawn()
-	if available_indices.size() > 0 and randf() < 0.30:
+	if available_indices.size() > 0 and randf() < 0.90:
 		var diver_lane = available_indices.pick_random()
 		process_diver_spawn(diver_lane)
 	await get_tree().create_timer(randf_range(3.0, 5.0)).timeout
@@ -43,7 +43,7 @@ func process_lane_spawn(lane_idx):
 	var roll = randf()
 	if roll < 0.65: 
 		count = 1
-	elif roll < 0.90: 
+	elif roll < 0.90:
 		count = 2
 	else: 
 		count = 3
@@ -67,9 +67,6 @@ func process_surface_spawn():
 	create_enemy(enemysub_two_scene, spawn_x, SURFACE_Y, dir)
 	await get_tree().create_timer(8.0).timeout 
 	surface_active = false
-	
-	
-	
 
 func process_diver_spawn(lane_idx):
 	lane_active[lane_idx] = true
