@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://b1ithutyo5lyh" path="res://background details/Algas sprite.png" id="1_rxbuu"]
 [ext_resource type="Texture2D" uid="uid://cavwnx5nsfrk6" path="res://background details/WATERLINE sprites.png" id="3_2it6s"]
 [ext_resource type="Texture2D" uid="uid://dtnygporbol6y" path="res://background details/Camada_18.png" id="4_nicop"]
+[ext_resource type="Texture2D" uid="uid://cn41wpuafuwn3" path="res://background details/- lineart ahua.png" id="4_rxbuu"]
+[ext_resource type="Texture2D" uid="uid://cu1hgh61lc8xe" path="res://background details/MonstroDoLagoMessi.png" id="5_p78r2"]
 
 [sub_resource type="GDScript" id="GDScript_ned8m"]
 
@@ -29,6 +31,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7120d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfour")
 }],
 "loop": true,
 "name": &"defaultalga",
@@ -80,6 +85,105 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2it6s"]
+atlas = ExtResource("5_p78r2")
+region = Rect2(0, 0, 335, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nicop"]
+atlas = ExtResource("5_p78r2")
+region = Rect2(335, 0, 335, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n35um"]
+atlas = ExtResource("5_p78r2")
+region = Rect2(670, 0, 335, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivj15"]
+atlas = ExtResource("5_p78r2")
+region = Rect2(1005, 0, 335, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xphms"]
+atlas = ExtResource("5_p78r2")
+region = Rect2(1340, 0, 335, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnw35"]
+atlas = ExtResource("5_p78r2")
+region = Rect2(1675, 0, 335, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3x5m"]
+atlas = ExtResource("5_p78r2")
+region = Rect2(2010, 0, 335, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvq1q"]
+atlas = ExtResource("5_p78r2")
+region = Rect2(2345, 0, 335, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4fsg"]
+atlas = ExtResource("5_p78r2")
+region = Rect2(2680, 0, 335, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r61t3"]
+atlas = ExtResource("5_p78r2")
+region = Rect2(3015, 0, 335, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6inwt"]
+atlas = ExtResource("5_p78r2")
+region = Rect2(3350, 0, 335, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j037"]
+atlas = ExtResource("5_p78r2")
+region = Rect2(3685, 0, 335, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2r6qk"]
+atlas = ExtResource("5_p78r2")
+region = Rect2(4020, 0, 335, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t5xnv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2it6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nicop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n35um")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivj15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xphms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnw35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3x5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvq1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4fsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r61t3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6inwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j037")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2r6qk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="background_details" type="Sprite2D" unique_id=934280213]
 script = SubResource("GDScript_ned8m")
 
@@ -87,13 +191,36 @@ script = SubResource("GDScript_ned8m")
 position = Vector2(952, 888)
 sprite_frames = SubResource("SpriteFrames_k7sri")
 animation = &"defaultalga"
+autoplay = "defaultalga"
+frame = 1
 script = SubResource("GDScript_46qu5")
 
 [node name="linha_agua" type="AnimatedSprite2D" parent="." unique_id=430913226]
 position = Vector2(956, 274)
 sprite_frames = SubResource("SpriteFrames_v4vv0")
 animation = &"defaultagua"
+autoplay = "defaultagua"
+frame_progress = 0.85473573
 
 [node name="frame" type="Sprite2D" parent="." unique_id=1598484936]
 position = Vector2(960, 539)
 texture = ExtResource("4_nicop")
+
+[node name="line" type="Sprite2D" parent="." unique_id=1724154141]
+position = Vector2(962, 540)
+texture = ExtResource("4_rxbuu")
+
+[node name="MonstroDoLagoMessi" type="AnimatedSprite2D" parent="." unique_id=388579909]
+position = Vector2(1781, 540)
+sprite_frames = SubResource("SpriteFrames_t5xnv")
+autoplay = "default"
+frame = 12
+speed_scale = 1.5
+
+[node name="MonstroDoLagoMessi2" type="AnimatedSprite2D" parent="." unique_id=1781211035]
+position = Vector2(139, 540)
+sprite_frames = SubResource("SpriteFrames_t5xnv")
+autoplay = "default"
+frame = 6
+speed_scale = 1.5
+flip_h = true
