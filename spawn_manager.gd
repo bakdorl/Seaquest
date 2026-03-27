@@ -27,7 +27,7 @@ func spawn_logic_loop():
 			process_lane_spawn(idx) 
 	if not surface_active and randf() < 0.15: 
 		process_surface_spawn()
-	if available_indices.size() > 0 and randf() < 0.15:
+	if available_indices.size() > 0 and randf() < 0.30:
 		var diver_lane = available_indices.pick_random()
 		process_diver_spawn(diver_lane)
 	await get_tree().create_timer(randf_range(3.0, 5.0)).timeout
@@ -70,16 +70,6 @@ func process_surface_spawn():
 	
 	
 	
-	
-	
-	
-	
-	
-
-
-
-
-
 
 func process_diver_spawn(lane_idx):
 	lane_active[lane_idx] = true
