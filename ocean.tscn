@@ -20,6 +20,17 @@
 [ext_resource type="Script" uid="uid://bmiu32che6ytx" path="res://divers_ui.gd" id="15_j8ed8"]
 [ext_resource type="PackedScene" uid="uid://b6les2v2b7bcj" path="res://diversicon.tscn" id="16_j8ed8"]
 [ext_resource type="Texture2D" uid="uid://c4qdlv8syo752" path="res://UI/lives/live_icon.png" id="18_7120d"]
+[ext_resource type="Script" uid="uid://5oeaihg18u46" path="res://score_ui.gd" id="21_n2vvr"]
+[ext_resource type="Texture2D" uid="uid://dsfghtuficbuk" path="res://UI/score/Background 10.png" id="22_xq0gf"]
+[ext_resource type="Texture2D" uid="uid://bqi7w8ppy4k4c" path="res://UI/score/Background.png" id="23_dbrm6"]
+[ext_resource type="Texture2D" uid="uid://dk6to0lxqcjs1" path="res://UI/score/Background 2.png" id="24_ddphc"]
+[ext_resource type="Texture2D" uid="uid://ca5gsagh50e16" path="res://UI/score/Background 3.png" id="25_rugoh"]
+[ext_resource type="Texture2D" uid="uid://bl40p4m5njfim" path="res://UI/score/Background 4.png" id="26_wh5tp"]
+[ext_resource type="Texture2D" uid="uid://c0iqsiwbfrd3v" path="res://UI/score/Background 5.png" id="27_q7pkb"]
+[ext_resource type="Texture2D" uid="uid://8eqyag3wmfjx" path="res://UI/score/Background 6.png" id="28_1tgwm"]
+[ext_resource type="Texture2D" uid="uid://jfn22tiocwwf" path="res://UI/score/Background 7.png" id="29_gv3q7"]
+[ext_resource type="Texture2D" uid="uid://d4i2n00dhthqm" path="res://UI/score/Background 8.png" id="30_3ggng"]
+[ext_resource type="Texture2D" uid="uid://n4kda6augd13" path="res://UI/score/Background 9.png" id="31_rf3aw"]
 
 [node name="Ocean" type="Node2D" unique_id=1879437640]
 script = ExtResource("1_a0hus")
@@ -105,6 +116,48 @@ offset_right = 20.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="score_ui" type="CanvasLayer" parent="." unique_id=1698205103 groups=["ui"]]
+script = ExtResource("21_n2vvr")
+number_images = Array[Texture2D]([ExtResource("22_xq0gf"), ExtResource("23_dbrm6"), ExtResource("24_ddphc"), ExtResource("25_rugoh"), ExtResource("26_wh5tp"), ExtResource("27_q7pkb"), ExtResource("28_1tgwm"), ExtResource("29_gv3q7"), ExtResource("30_3ggng"), ExtResource("31_rf3aw")])
+
+[node name="HBoxContainer" type="HBoxContainer" parent="score_ui" unique_id=464115213]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 32.0
+offset_right = 20.0
+offset_bottom = 72.0
+grow_horizontal = 2
+scale = Vector2(1, 0.84000003)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="digit0" type="TextureRect" parent="score_ui/HBoxContainer" unique_id=948371646]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="digit1" type="TextureRect" parent="score_ui/HBoxContainer" unique_id=1066041803]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="digit2" type="TextureRect" parent="score_ui/HBoxContainer" unique_id=1569465884]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="digit3" type="TextureRect" parent="score_ui/HBoxContainer" unique_id=2070774085]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="digit4" type="TextureRect" parent="score_ui/HBoxContainer" unique_id=157293557]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="digit5" type="TextureRect" parent="score_ui/HBoxContainer" unique_id=1369491513]
+layout_mode = 2
+stretch_mode = 5
 
 [connection signal="oxygen_changed" from="Submarine" to="oxygen_ui/UI/TextureProgressBar" method="_on_submarine_oxygen_changed"]
 

@@ -75,7 +75,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4f85"]
 size = Vector2(174, 55)
 
-[node name="Submarine" type="CharacterBody2D" unique_id=579768933]
+[node name="Submarine" type="CharacterBody2D" unique_id=579768933 groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_k4f85")
 
@@ -85,9 +85,6 @@ shape = SubResource("RectangleShape2D_kjqlq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1645864602]
 sprite_frames = SubResource("SpriteFrames_k4f85")
-animation = &"explode"
-frame = 3
-frame_progress = 1.0
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1281207740]
 

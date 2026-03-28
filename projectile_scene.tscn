@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dkkfy"]
 size = Vector2(47, 10)
 
-[node name="projectile" type="Area2D" unique_id=314485621 groups=["projectiles"]]
+[node name="projectile" type="Area2D" unique_id=314485621 groups=["player", "projectiles"]]
 script = ExtResource("1_ggcku")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=212251101]
