@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://can160vihfgkk" path="res://player/scripts/submarine.gd" id="1_k4f85"]
 [ext_resource type="Texture2D" uid="uid://btbvv4gvjgtjv" path="res://player/sprites/Sprite subs.png" id="2_k4f85"]
+[ext_resource type="Texture2D" uid="uid://cfm4uy8h2pe5s" path="res://player/IMG_6714.png" id="3_qvldv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjqlq"]
 size = Vector2(170, 53)
@@ -18,6 +19,22 @@ region = Rect2(222, 0, 222, 109)
 atlas = ExtResource("2_k4f85")
 region = Rect2(444, 0, 222, 109)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2b0v"]
+atlas = ExtResource("3_qvldv")
+region = Rect2(0, 0, 352, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2y6f"]
+atlas = ExtResource("3_qvldv")
+region = Rect2(352, 0, 352, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8e5i"]
+atlas = ExtResource("3_qvldv")
+region = Rect2(704, 0, 352, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vve82"]
+atlas = ExtResource("3_qvldv")
+region = Rect2(1056, 0, 352, 360)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_k4f85"]
 animations = [{
 "frames": [{
@@ -33,6 +50,26 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2b0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2y6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8e5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vve82")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"explode",
+"speed": 9.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4f85"]
@@ -48,8 +85,9 @@ shape = SubResource("RectangleShape2D_kjqlq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1645864602]
 sprite_frames = SubResource("SpriteFrames_k4f85")
-frame = 2
-frame_progress = 0.42356876
+animation = &"explode"
+frame = 3
+frame_progress = 1.0
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1281207740]
 

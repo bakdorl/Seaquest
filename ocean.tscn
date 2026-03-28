@@ -6,16 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://dfhi7x6kg1gry" path="res://projectile_scene.tscn" id="3_nb2vx"]
 [ext_resource type="PackedScene" uid="uid://b556op5qq7hop" path="res://oxygen_ui.tscn" id="4_bwgqs"]
 [ext_resource type="PackedScene" uid="uid://ds1w6wgqg8pqv" path="res://diver.tscn" id="5_v5bp3"]
+[ext_resource type="Texture2D" uid="uid://bwo81j3ssox5n" path="res://UI/oxygen/Icons 3.png" id="6_kfour"]
 [ext_resource type="PackedScene" uid="uid://cpcarmow0byaj" path="res://shark.tscn" id="7_06qne"]
+[ext_resource type="Texture2D" uid="uid://daneukv1gu6gy" path="res://UI/oxygen/Icons.png" id="7_7120d"]
+[ext_resource type="Texture2D" uid="uid://bb0ygw2ca8khe" path="res://UI/oxygen/Icons 2.png" id="8_k7sri"]
 [ext_resource type="Script" uid="uid://1wrbeenktfmd" path="res://spawn_manager.gd" id="9_nrb0v"]
 [ext_resource type="PackedScene" uid="uid://byhnwhm3b0ckx" path="res://enemysub.tscn" id="9_v5bp3"]
 [ext_resource type="PackedScene" uid="uid://bjwx1ipcmh5sv" path="res://area_2d.tscn" id="10_v5bp3"]
 [ext_resource type="PackedScene" uid="uid://dwhxcn7bahe22" path="res://background_details.tscn" id="11_1ixhq"]
 [ext_resource type="PackedScene" uid="uid://ctc0ixokldi6e" path="res://enemysub_two.tscn" id="11_xgj7f"]
 [ext_resource type="Script" uid="uid://bowgdgcuneg2n" path="res://lives_ui.gd" id="12_ned8m"]
-[ext_resource type="PackedScene" uid="uid://dg2n2vrf5n5vd" path="res://life_icon.tscn" id="13_a0hus"]
+[ext_resource type="PackedScene" uid="uid://dg2n2vrf5n5vd" path="res://UI/lives/life_icon.tscn" id="13_a0hus"]
 [ext_resource type="Script" uid="uid://bmiu32che6ytx" path="res://divers_ui.gd" id="15_j8ed8"]
 [ext_resource type="PackedScene" uid="uid://b6les2v2b7bcj" path="res://diversicon.tscn" id="16_j8ed8"]
+[ext_resource type="Texture2D" uid="uid://c4qdlv8syo752" path="res://UI/lives/live_icon.png" id="18_7120d"]
 
 [node name="Ocean" type="Node2D" unique_id=1879437640]
 script = ExtResource("1_a0hus")
@@ -35,6 +39,16 @@ texture = ExtResource("2_j38dg")
 [node name="projectile" parent="." unique_id=314485621 instance=ExtResource("3_nb2vx")]
 
 [node name="oxygen_ui" parent="." unique_id=1118615531 instance=ExtResource("4_bwgqs")]
+
+[node name="TextureProgressBar" parent="oxygen_ui/UI" parent_id_path=PackedInt32Array(1118615531, 811563008) index="0" unique_id=1290613981]
+offset_left = 640.0
+offset_top = 898.0
+offset_right = 1431.3511
+offset_bottom = 1042.6465
+scale = Vector2(0.82750213, 0.6750505)
+texture_under = ExtResource("6_kfour")
+texture_over = ExtResource("7_7120d")
+texture_progress = ExtResource("8_k7sri")
 
 [node name="diver" parent="." unique_id=2020783172 instance=ExtResource("5_v5bp3")]
 position = Vector2(624, 502)
@@ -72,6 +86,7 @@ alignment = 1
 
 [node name="life_icon" parent="lives_ui/HBoxContainer" unique_id=304009013 instance=ExtResource("13_a0hus")]
 layout_mode = 2
+texture = ExtResource("18_7120d")
 
 [node name="divers_ui" type="CanvasLayer" parent="." unique_id=1391721545]
 layer = 8

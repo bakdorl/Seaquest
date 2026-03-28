@@ -15,11 +15,6 @@ func _ready():
 	spawn_logic_loop()
 
 func spawn_logic_loop():
-	#var sub = get_tree().get_first_node_in_group("player") 
-	#if sub and sub.passive_state:
-		#await get_tree().create_timer(1.0).timeout
-		#spawn_logic_loop()
-		#return
 	var available_indices = []
 	for i in range(4):
 		if not lane_active[i]:
@@ -33,8 +28,8 @@ func spawn_logic_loop():
 			process_lane_spawn(idx) 
 	if not surface_active and randf() < 0.15: 
 		process_surface_spawn()
-	if available_indices.size() > 0 and randf() < 1.5:
-		var diver_lane = available_indices.pick_random()
+	if available_indices.size() > 0 and randf() < 0.6:
+		var diver_lane = available_indices.pop_back()
 		process_diver_spawn(diver_lane)
 	await get_tree().create_timer(randf_range(3.0, 5.0)).timeout
 	spawn_logic_loop()
@@ -80,7 +75,7 @@ func process_diver_spawn(lane_idx):
 	var dir = 1 if randf() > 0.5 else -1
 	var spawn_x = 10 if dir == 1 else 1999
 	create_enemy(diver_scene, spawn_x, y_pos, dir)
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(1.5).timeout
 	lane_active[lane_idx] = false
 
 func clear_all_entities():
@@ -92,5 +87,5 @@ func clear_all_entities():
 	
 	
 	
-
+	
 	

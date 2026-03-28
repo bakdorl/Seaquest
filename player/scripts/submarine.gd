@@ -63,10 +63,10 @@ func explode():
 	lives -= 1
 	lives_changed.emit(lives)
 	deposit_divers()
-	#$AnimatedSprite2D.play("explode")
+	$AnimatedSprite2D.play("explode")
 	$CollisionShape2D.set_deferred ("disabled", true)
 	velocity = Vector2.ZERO
-	#await $AnimatedSprite2D.animation_finished
+	await $AnimatedSprite2D.animation_finished
 	get_tree().call_group("spawner", "clear_all_entities")
 	if lives > 0:
 		respawn()
@@ -129,17 +129,17 @@ func _on_collection_area_area_entered(area: Area2D) -> void:
 		explode()
 	
 func refill_oxygen(delta): 
-	current_oxygen += (oxygen_speed * 8) * delta
+	current_oxygen += (oxygen_speed * 15) * delta
 	if current_oxygen >= 100:
+		current_oxygen = 100.0 
 		if divers_collected == MAX_DIVERS:
 			handle_full_delivery()
 		else: 
-			deposit_divers()
+			if divers_collected > 0:
+				divers_collected -= 1
+				divers_changed.emit(divers_collected)
 			passive_state = false
-			current_oxygen = 100.0 
-	else:
-		current_oxygen += (oxygen_speed * 15) * delta
-		
+
 func respawn():
 	await get_tree().create_timer(0.5).timeout
 	is_dead = false
@@ -166,13 +166,5 @@ func handle_full_delivery():
 		lives_changed.emit(lives)
 	velocity = Vector2.ZERO
 	await get_tree().create_timer(1.0).timeout 
-	deposit_divers()
 	passive_state = false
 	current_oxygen = 100.0
-		
-		
-		
-		
-		
-	
-		

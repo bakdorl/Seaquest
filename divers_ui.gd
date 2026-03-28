@@ -6,7 +6,7 @@ extends CanvasLayer
 func _ready():
 	divers_container.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM, Control.PRESET_MODE_KEEP_WIDTH)
 	divers_container.grow_vertical = Control.GROW_DIRECTION_BEGIN
-	divers_container.position.y -= 50
+	divers_container.position.y -= 25
 	var submarine = get_tree().current_scene.find_child("Submarine", true, false)
 	if submarine:
 		submarine.divers_changed.connect(_on_divers_changed)
