@@ -15,6 +15,11 @@ func _ready():
 	spawn_logic_loop()
 
 func spawn_logic_loop():
+	#var sub = get_tree().get_first_node_in_group("player") 
+	#if sub and sub.passive_state:
+		#await get_tree().create_timer(1.0).timeout
+		#spawn_logic_loop()
+		#return
 	var available_indices = []
 	for i in range(4):
 		if not lane_active[i]:
@@ -84,4 +89,8 @@ func clear_all_entities():
 			child.queue_free()
 	lane_active = [false, false, false, false]
 	surface_active = false
+	
+	
+	
+
 	

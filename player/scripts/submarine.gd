@@ -155,9 +155,9 @@ func handle_full_delivery():
 	passive_state = true
 	divers_collected = 0 
 	if lives < MAX_LIVES:
+		get_tree().call_group("spawner", "clear_all_entities")
 		lives += 1
 		lives_changed.emit(lives)
-	get_tree().call_group("spawner", "clear_all_entities")
 	velocity = Vector2.ZERO
 	await get_tree().create_timer(1.0).timeout 
 	deposit_divers()
