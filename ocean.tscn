@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://bjwx1ipcmh5sv" path="res://area_2d.tscn" id="10_v5bp3"]
 [ext_resource type="PackedScene" uid="uid://dwhxcn7bahe22" path="res://background_details.tscn" id="11_1ixhq"]
 [ext_resource type="PackedScene" uid="uid://ctc0ixokldi6e" path="res://enemysub_two.tscn" id="11_xgj7f"]
+[ext_resource type="Script" uid="uid://bowgdgcuneg2n" path="res://lives_ui.gd" id="12_ned8m"]
+[ext_resource type="PackedScene" uid="uid://dg2n2vrf5n5vd" path="res://life_icon.tscn" id="13_a0hus"]
 
 [node name="Ocean" type="Node2D" unique_id=1879437640]
 
@@ -45,6 +47,27 @@ script = ExtResource("9_nrb0v")
 [node name="enemysub_two" parent="." unique_id=1871379930 instance=ExtResource("11_xgj7f")]
 
 [node name="background_details" parent="." unique_id=934280213 instance=ExtResource("11_1ixhq")]
+
+[node name="lives_ui" type="CanvasLayer" parent="." unique_id=653672218]
+script = ExtResource("12_ned8m")
+life_icon_scene = ExtResource("13_a0hus")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="lives_ui" unique_id=1498629858]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 60.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="life_icon" parent="lives_ui/HBoxContainer" unique_id=304009013 instance=ExtResource("13_a0hus")]
+layout_mode = 2
 
 [connection signal="oxygen_changed" from="Submarine" to="oxygen_ui/UI/TextureProgressBar" method="_on_submarine_oxygen_changed"]
 

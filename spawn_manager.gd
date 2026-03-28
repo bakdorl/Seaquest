@@ -11,6 +11,7 @@ var lane_active = [false, false, false, false]
 var surface_active = false 
 
 func _ready():
+	add_to_group("spawner") 
 	spawn_logic_loop()
 
 func spawn_logic_loop():
@@ -27,7 +28,7 @@ func spawn_logic_loop():
 			process_lane_spawn(idx) 
 	if not surface_active and randf() < 0.15: 
 		process_surface_spawn()
-	if available_indices.size() > 0 and randf() < 0.90:
+	if available_indices.size() > 0 and randf() < 1.5:
 		var diver_lane = available_indices.pick_random()
 		process_diver_spawn(diver_lane)
 	await get_tree().create_timer(randf_range(3.0, 5.0)).timeout
@@ -76,3 +77,11 @@ func process_diver_spawn(lane_idx):
 	create_enemy(diver_scene, spawn_x, y_pos, dir)
 	await get_tree().create_timer(5.0).timeout
 	lane_active[lane_idx] = false
+
+func clear_all_entities():
+	for child in get_children():
+		if child is CharacterBody2D or child is Area2D:
+			child.queue_free()
+	lane_active = [false, false, false, false]
+	surface_active = false
+	

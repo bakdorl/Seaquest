@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dg2n2vrf5n5vd"]
+
+[ext_resource type="Texture2D" uid="uid://b0blb85tjoog7" path="res://projectile/Projetile.png" id="1_narj5"]
+
+[node name="lifeIcon" type="TextureRect" unique_id=1002588254]
+texture = ExtResource("1_narj5")
+stretch_mode = 3

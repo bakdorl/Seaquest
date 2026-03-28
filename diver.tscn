@@ -116,7 +116,8 @@ shape = SubResource("RectangleShape2D_06qne")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1998808333]
 sprite_frames = SubResource("SpriteFrames_nrb0v")
 animation = &"defaultdiver"
-frame_progress = 0.019977137
+autoplay = "defaultdiver"
+frame_progress = 0.5557249
 speed_scale = 1.5
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=661925469]

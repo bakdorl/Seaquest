@@ -3,10 +3,15 @@ extends CharacterBody2D
 @onready var projectile_scene = load ("res://projectile_scene.tscn")
 
 signal oxygen_changed(value)
+signal lives_changed(value)
 signal submarine_exploded
-		
+
 const SPEED = 450.0
 const MAX_DIVERS: int = 6
+const MAX_LIVES: int = 6
+const SPAWN_POSITION = Vector2(960, 250)
+
+var lives: int = 3
 var projectile_direction = Vector2(1.0, 0.0) 
 var max_oxygen: float = 100.0
 var current_oxygen: float = 100.0
@@ -16,12 +21,14 @@ var divers_collected: int = 0
 var passive_state = false
 var submerged = false
 
+
 func _ready():
 	$AnimatedSprite2D.play("default")
+	lives_changed.emit(lives)
 
 
 func _physics_process(_delta: float) -> void:
-	if passive_state == true:
+	if passive_state == true or is_dead:
 		return 
 	
 	var direction = Vector2.ZERO
@@ -50,14 +57,23 @@ func _physics_process(_delta: float) -> void:
 	position.y = clamp(global_position.y, 255, 800)
 	
 func explode():
-	is_dead = true 
+	if is_dead: return
+	is_dead = true
+	lives -= 1
+	lives_changed.emit(lives)
 	#$AnimatedSprite2D.play("explode")
 	$CollisionShape2D.set_deferred ("disabled", true)
 	velocity = Vector2.ZERO
 	#await $AnimatedSprite2D.animation_finished
-	queue_free()
+	get_tree().call_group("spawner", "clear_all_entities")
+	if lives > 0:
+		respawn()
+	else:
+		game_over()
 	
 func _process(delta):
+	if is_dead: return
+	
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 	
@@ -111,5 +127,41 @@ func _on_collection_area_area_entered(area: Area2D) -> void:
 func refill_oxygen(delta): 
 	current_oxygen += (oxygen_speed * 8) * delta
 	if current_oxygen >= 100:
-		deposit_divers()
-		passive_state = false
+		if divers_collected == MAX_DIVERS:
+			handle_full_delivery()
+		else: 
+			deposit_divers()
+			passive_state = false
+			current_oxygen = 100.0 
+	else:
+		current_oxygen += (oxygen_speed * 15) * delta
+		
+func respawn():
+	await get_tree().create_timer(0.5).timeout
+	is_dead = false
+	global_position = SPAWN_POSITION
+	current_oxygen = max_oxygen
+	divers_collected = 0
+	submerged = false
+	$CollisionShape2D.disabled = false
+	$AnimatedSprite2D.play("default")
+
+func game_over():
+	submarine_exploded.emit()
+	queue_free()
+
+func handle_full_delivery():
+	if is_dead: return
+	passive_state = true
+	divers_collected = 0 
+	if lives < MAX_LIVES:
+		lives += 1
+		lives_changed.emit(lives)
+	get_tree().call_group("spawner", "clear_all_entities")
+	velocity = Vector2.ZERO
+	await get_tree().create_timer(1.0).timeout 
+	deposit_divers()
+	passive_state = false
+	current_oxygen = 100.0
+		
+		

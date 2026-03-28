@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bmp8wx7oqs31s"]
+
+[ext_resource type="Texture2D" uid="uid://b0blb85tjoog7" path="res://projectile/Projetile.png" id="1_sxn3m"]
+
+[node name="lives_ui" type="CanvasLayer" unique_id=1337084512]
+
+[node name="Control" type="Control" parent="." unique_id=368957631]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=2029774095]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="life_icon" type="TextureRect" parent="Control/HBoxContainer" unique_id=1339777958]
+layout_mode = 2
+texture = ExtResource("1_sxn3m")
+stretch_mode = 3
