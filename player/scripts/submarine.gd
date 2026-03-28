@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 signal oxygen_changed(value)
 signal lives_changed(value)
+signal divers_changed(count)
 signal submarine_exploded
 
 const SPEED = 450.0
@@ -61,6 +62,7 @@ func explode():
 	is_dead = true
 	lives -= 1
 	lives_changed.emit(lives)
+	deposit_divers()
 	#$AnimatedSprite2D.play("explode")
 	$CollisionShape2D.set_deferred ("disabled", true)
 	velocity = Vector2.ZERO
@@ -107,6 +109,7 @@ func shoot():
 func pick_up_diver():
 	if divers_collected < MAX_DIVERS:
 		divers_collected += 1
+		divers_changed.emit(divers_collected)
 	else:
 		print("Submarine full")
 		# e fazer parar de subir
@@ -114,6 +117,7 @@ func pick_up_diver():
 func deposit_divers():
 	if divers_collected > 0:
 		divers_collected = 0
+		divers_changed.emit(divers_collected)
 	
 func _on_collection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("divers"):
@@ -148,12 +152,14 @@ func respawn():
 
 func game_over():
 	submarine_exploded.emit()
+	divers_changed.emit(divers_collected)
 	queue_free()
 
 func handle_full_delivery():
 	if is_dead: return
 	passive_state = true
 	divers_collected = 0 
+	divers_changed.emit(0)
 	if lives < MAX_LIVES:
 		get_tree().call_group("spawner", "clear_all_entities")
 		lives += 1
@@ -164,4 +170,9 @@ func handle_full_delivery():
 	passive_state = false
 	current_oxygen = 100.0
 		
+		
+		
+		
+		
+	
 		

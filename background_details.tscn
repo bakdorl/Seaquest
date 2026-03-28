@@ -188,6 +188,7 @@ animations = [{
 script = SubResource("GDScript_ned8m")
 
 [node name="algacoral" type="AnimatedSprite2D" parent="." unique_id=1381799781]
+z_index = -2
 position = Vector2(952, 888)
 sprite_frames = SubResource("SpriteFrames_k7sri")
 animation = &"defaultalga"
@@ -196,6 +197,7 @@ frame = 1
 script = SubResource("GDScript_46qu5")
 
 [node name="linha_agua" type="AnimatedSprite2D" parent="." unique_id=430913226]
+z_index = 2
 position = Vector2(956, 274)
 sprite_frames = SubResource("SpriteFrames_v4vv0")
 animation = &"defaultagua"
@@ -207,6 +209,7 @@ position = Vector2(960, 539)
 texture = ExtResource("4_nicop")
 
 [node name="line" type="Sprite2D" parent="." unique_id=1724154141]
+z_index = -6
 position = Vector2(962, 540)
 texture = ExtResource("4_rxbuu")
 
