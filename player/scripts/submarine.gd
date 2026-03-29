@@ -63,6 +63,7 @@ func explode():
 	lives -= 1
 	lives_changed.emit(lives)
 	deposit_divers()
+	AudioController.play_death()
 	$AnimatedSprite2D.play("explode")
 	$CollisionShape2D.set_deferred ("disabled", true)
 	velocity = Vector2.ZERO
@@ -77,6 +78,7 @@ func _process(delta):
 	if is_dead: return
 	
 	if Input.is_action_just_pressed("shoot"):
+		AudioController.play_shoot()
 		shoot()
 	
 	var surface_y = 260
@@ -121,6 +123,7 @@ func deposit_divers():
 	
 func _on_collection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("divers"):
+		AudioController.play_pickup_diver()
 		pick_up_diver()
 		area.queue_free()
 	if area.is_in_group("enemies"):

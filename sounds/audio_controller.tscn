@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bm6thornufcow"]
+
+[ext_resource type="Script" uid="uid://cyj3e6qw1bwbq" path="res://sounds/audio_controller.gd" id="1_4myyy"]
+[ext_resource type="AudioStream" uid="uid://due53na71yiml" path="res://music/tunetank-retro-surf-rock-348237.mp3" id="2_5ca5s"]
+[ext_resource type="AudioStream" uid="uid://c34k6iw1n6xid" path="res://sounds/tweng.mp3" id="3_ydps5"]
+[ext_resource type="AudioStream" uid="uid://ce3tmrwbwt2tq" path="res://sounds/papertear.mp3" id="4_p6ysr"]
+[ext_resource type="AudioStream" uid="uid://c80lnsyhde0j1" path="res://sounds/balloon.mp3" id="5_bms41"]
+[ext_resource type="AudioStream" uid="uid://r2xp84j10ehc" path="res://sounds/glassclink.mp3" id="6_u83vn"]
+[ext_resource type="AudioStream" uid="uid://fyu5wn2j08j4" path="res://sounds/alarm.mp3" id="7_7unwl"]
+
+[node name="AudioController" type="Node2D" unique_id=1247348979]
+script = ExtResource("1_4myyy")
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=865438708]
+stream = ExtResource("2_5ca5s")
+volume_db = -9.167
+
+[node name="shoot" type="AudioStreamPlayer" parent="." unique_id=864632862]
+stream = ExtResource("3_ydps5")
+
+[node name="death" type="AudioStreamPlayer" parent="." unique_id=1948005644]
+stream = ExtResource("4_p6ysr")
+
+[node name="refill" type="AudioStreamPlayer" parent="." unique_id=1062075371]
+stream = ExtResource("5_bms41")
+
+[node name="pickup_diver" type="AudioStreamPlayer" parent="." unique_id=783744865]
+stream = ExtResource("6_u83vn")
+
+[node name="alarm" type="AudioStreamPlayer" parent="." unique_id=75158916]
+stream = ExtResource("7_7unwl")
