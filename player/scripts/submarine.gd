@@ -53,7 +53,7 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_pressed("up"):
 		direction.y -= 1 
 	if Input.is_action_pressed("quit"):
-		get_tree().quit()  
+		get_tree().quit()
 		
 	if direction != Vector2.ZERO:
 		velocity = direction * SPEED
