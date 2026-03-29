@@ -24,7 +24,7 @@ var is_dead = false
 var divers_collected: int = 0
 var passive_state = false
 var submerged = false
-
+var removed_diver = false
 
 func _ready():
 	$AnimatedSprite2D.play("default")
@@ -33,9 +33,6 @@ func _ready():
 	var ui = get_tree().get_first_node_in_group("ui")
 	if ui:
 		score_changed.connect(ui.update_display)
-	
-
-
 
 func _physics_process(_delta: float) -> void:
 	if passive_state == true or is_dead:
@@ -54,7 +51,9 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_pressed("down"):
 		direction.y += 1
 	if Input.is_action_pressed("up"):
-		direction.y -= 1
+		direction.y -= 1 
+	if Input.is_action_pressed("quit"):
+		get_tree().quit()  
 		
 	if direction != Vector2.ZERO:
 		velocity = direction * SPEED
@@ -92,7 +91,7 @@ func _process(delta):
 	if global_position.y <= surface_y and divers_collected >= 1:
 		passive_state = true 
 		submerged = false
-		refill_oxygen(delta)
+		process_refilling(delta)
 	elif global_position.y <= surface_y and divers_collected < 1:
 		if submerged == true:
 			explode()
@@ -102,6 +101,7 @@ func _process(delta):
 	
 	if global_position.y > 270:
 		submerged = true
+		removed_diver = false
 	
 	current_oxygen = clamp(current_oxygen, 0, max_oxygen)
 	oxygen_changed.emit(current_oxygen)
@@ -136,18 +136,22 @@ func _on_collection_area_area_entered(area: Area2D) -> void:
 		explode()
 	if area.is_in_group("ProjectileEnemy"):
 		explode()
-	
+
+func process_refilling(delta):
+	if divers_collected < MAX_DIVERS:
+		refill_oxygen(delta)
+		if current_oxygen >= 100 and removed_diver == false:
+			divers_collected -= 1
+			removed_diver = true
+			divers_changed.emit(divers_collected)
+	else:
+		handle_full_delivery()
+
 func refill_oxygen(delta): 
 	current_oxygen += (oxygen_speed * 15) * delta
 	if current_oxygen >= 100:
 		current_oxygen = 100.0 
-		if divers_collected == MAX_DIVERS:
-			handle_full_delivery()
-		else: 
-			if divers_collected > 0:
-				divers_collected -= 1
-				divers_changed.emit(divers_collected)
-			passive_state = false
+		passive_state = false
 
 func respawn():
 	await get_tree().create_timer(0.5).timeout
@@ -171,7 +175,7 @@ func handle_full_delivery():
 	add_score(delivery_bonus + oxygen_bonus)
 	passive_state = true
 	divers_collected = 0 
-	divers_changed.emit(0)
+	divers_changed.emit(divers_collected)
 	if lives < MAX_LIVES:
 		get_tree().call_group("spawner", "clear_all_entities")
 		lives += 1
