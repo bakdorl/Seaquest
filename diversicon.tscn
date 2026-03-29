@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b6les2v2b7bcj"]
+
+[ext_resource type="Texture2D" uid="uid://qvprrltojek5" path="res://UI/divers/Icons 4.png" id="1_2hrm6"]
+
+[node name="diversicon" type="HBoxContainer" unique_id=1739813420]
+clip_contents = true
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.80000013, 0.8399998)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=441533330]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("1_2hrm6")
+stretch_mode = 5

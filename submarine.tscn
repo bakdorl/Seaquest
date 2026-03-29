@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://can160vihfgkk" path="res://player/scripts/submarine.gd" id="1_k4f85"]
 [ext_resource type="Texture2D" uid="uid://btbvv4gvjgtjv" path="res://player/sprites/Sprite subs.png" id="2_k4f85"]
+[ext_resource type="Texture2D" uid="uid://cfm4uy8h2pe5s" path="res://player/IMG_6714.png" id="3_qvldv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjqlq"]
-size = Vector2(170, 53)
+size = Vector2(170, 44)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k4f85"]
 atlas = ExtResource("2_k4f85")
@@ -17,6 +18,22 @@ region = Rect2(222, 0, 222, 109)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wxksq"]
 atlas = ExtResource("2_k4f85")
 region = Rect2(444, 0, 222, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2b0v"]
+atlas = ExtResource("3_qvldv")
+region = Rect2(0, 0, 352, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2y6f"]
+atlas = ExtResource("3_qvldv")
+region = Rect2(352, 0, 352, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8e5i"]
+atlas = ExtResource("3_qvldv")
+region = Rect2(704, 0, 352, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vve82"]
+atlas = ExtResource("3_qvldv")
+region = Rect2(1056, 0, 352, 360)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k4f85"]
 animations = [{
@@ -33,17 +50,51 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2b0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2y6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8e5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vve82")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"explode",
+"speed": 9.0
 }]
 
-[node name="Submarine" type="CharacterBody2D" unique_id=579768933]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qvldv"]
+radius = 17.5
+height = 154.0
+
+[node name="Submarine" type="CharacterBody2D" unique_id=579768933 groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_k4f85")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1115819331]
-position = Vector2(-5, -3.5)
+position = Vector2(-5, 1)
 shape = SubResource("RectangleShape2D_kjqlq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1645864602]
 sprite_frames = SubResource("SpriteFrames_k4f85")
-frame = 2
-frame_progress = 0.42356876
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1281207740]
+
+[node name="CollectionArea" type="Area2D" parent="." unique_id=1903691469]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionArea" unique_id=914738070]
+position = Vector2(1, 3)
+rotation = 1.5707964
+scale = Vector2(1.3265626, -1.0825913)
+shape = SubResource("CapsuleShape2D_qvldv")
+
+[connection signal="area_entered" from="CollectionArea" to="." method="_on_collection_area_area_entered"]

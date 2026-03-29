@@ -1,17 +1,163 @@
 [gd_scene format=3 uid="uid://b36ojtcn8h5ve"]
 
+[ext_resource type="Script" uid="uid://cwl73wl18s4mv" path="res://ocean.gd" id="1_a0hus"]
 [ext_resource type="PackedScene" uid="uid://btebci5tthalf" path="res://submarine.tscn" id="1_tiovm"]
 [ext_resource type="Texture2D" uid="uid://mwyyccx6ah88" path="res://background/Ilustração_Sem_Título.png" id="2_j38dg"]
+[ext_resource type="PackedScene" uid="uid://dfhi7x6kg1gry" path="res://projectile_scene.tscn" id="3_nb2vx"]
+[ext_resource type="PackedScene" uid="uid://b556op5qq7hop" path="res://oxygen_ui.tscn" id="4_bwgqs"]
+[ext_resource type="PackedScene" uid="uid://ds1w6wgqg8pqv" path="res://diver.tscn" id="5_v5bp3"]
+[ext_resource type="Texture2D" uid="uid://bwo81j3ssox5n" path="res://UI/oxygen/Icons 3.png" id="6_kfour"]
+[ext_resource type="PackedScene" uid="uid://cpcarmow0byaj" path="res://shark.tscn" id="7_06qne"]
+[ext_resource type="Texture2D" uid="uid://daneukv1gu6gy" path="res://UI/oxygen/Icons.png" id="7_7120d"]
+[ext_resource type="Texture2D" uid="uid://bb0ygw2ca8khe" path="res://UI/oxygen/Icons 2.png" id="8_k7sri"]
+[ext_resource type="Script" uid="uid://1wrbeenktfmd" path="res://spawn_manager.gd" id="9_nrb0v"]
+[ext_resource type="PackedScene" uid="uid://byhnwhm3b0ckx" path="res://enemysub.tscn" id="9_v5bp3"]
+[ext_resource type="PackedScene" uid="uid://bjwx1ipcmh5sv" path="res://area_2d.tscn" id="10_v5bp3"]
+[ext_resource type="PackedScene" uid="uid://dwhxcn7bahe22" path="res://background_details.tscn" id="11_1ixhq"]
+[ext_resource type="PackedScene" uid="uid://ctc0ixokldi6e" path="res://enemysub_two.tscn" id="11_xgj7f"]
+[ext_resource type="Script" uid="uid://bowgdgcuneg2n" path="res://lives_ui.gd" id="12_ned8m"]
+[ext_resource type="PackedScene" uid="uid://dg2n2vrf5n5vd" path="res://UI/lives/life_icon.tscn" id="13_a0hus"]
+[ext_resource type="Script" uid="uid://bmiu32che6ytx" path="res://divers_ui.gd" id="15_j8ed8"]
+[ext_resource type="PackedScene" uid="uid://b6les2v2b7bcj" path="res://diversicon.tscn" id="16_j8ed8"]
+[ext_resource type="Script" uid="uid://5oeaihg18u46" path="res://score_ui.gd" id="21_n2vvr"]
+[ext_resource type="Texture2D" uid="uid://dsfghtuficbuk" path="res://UI/score/Background 10.png" id="22_xq0gf"]
+[ext_resource type="Texture2D" uid="uid://bqi7w8ppy4k4c" path="res://UI/score/Background.png" id="23_dbrm6"]
+[ext_resource type="Texture2D" uid="uid://dk6to0lxqcjs1" path="res://UI/score/Background 2.png" id="24_ddphc"]
+[ext_resource type="Texture2D" uid="uid://ca5gsagh50e16" path="res://UI/score/Background 3.png" id="25_rugoh"]
+[ext_resource type="Texture2D" uid="uid://bl40p4m5njfim" path="res://UI/score/Background 4.png" id="26_wh5tp"]
+[ext_resource type="Texture2D" uid="uid://c0iqsiwbfrd3v" path="res://UI/score/Background 5.png" id="27_q7pkb"]
+[ext_resource type="Texture2D" uid="uid://8eqyag3wmfjx" path="res://UI/score/Background 6.png" id="28_1tgwm"]
+[ext_resource type="Texture2D" uid="uid://jfn22tiocwwf" path="res://UI/score/Background 7.png" id="29_gv3q7"]
+[ext_resource type="Texture2D" uid="uid://d4i2n00dhthqm" path="res://UI/score/Background 8.png" id="30_3ggng"]
+[ext_resource type="Texture2D" uid="uid://n4kda6augd13" path="res://UI/score/Background 9.png" id="31_rf3aw"]
 
 [node name="Ocean" type="Node2D" unique_id=1879437640]
+script = ExtResource("1_a0hus")
 
 [node name="Submarine" parent="." unique_id=579768933 instance=ExtResource("1_tiovm")]
+z_index = 1
 position = Vector2(961, 549)
 input_pickable = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1733076593]
+[node name="background" type="CanvasLayer" parent="." unique_id=1733076593]
 layer = -1
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=657863596]
+[node name="Sprite2D" type="Sprite2D" parent="background" unique_id=657863596]
 position = Vector2(960, 540)
 texture = ExtResource("2_j38dg")
+
+[node name="projectile" parent="." unique_id=314485621 instance=ExtResource("3_nb2vx")]
+
+[node name="oxygen_ui" parent="." unique_id=1118615531 instance=ExtResource("4_bwgqs")]
+
+[node name="TextureProgressBar" parent="oxygen_ui/UI" parent_id_path=PackedInt32Array(1118615531, 811563008) index="0" unique_id=1290613981]
+offset_left = 640.0
+offset_top = 898.0
+offset_right = 1431.3511
+offset_bottom = 1042.6465
+scale = Vector2(0.82750213, 0.6750505)
+texture_under = ExtResource("6_kfour")
+texture_over = ExtResource("7_7120d")
+texture_progress = ExtResource("8_k7sri")
+
+[node name="diver" parent="." unique_id=2020783172 instance=ExtResource("5_v5bp3")]
+position = Vector2(624, 502)
+
+[node name="shark" parent="." unique_id=1477438915 instance=ExtResource("7_06qne")]
+
+[node name="SpawnManager" type="Node2D" parent="." unique_id=1179353335]
+script = ExtResource("9_nrb0v")
+
+[node name="enemysub" parent="." unique_id=1448156138 instance=ExtResource("9_v5bp3")]
+
+[node name="projectileenemy" parent="." unique_id=1584864070 instance=ExtResource("10_v5bp3")]
+
+[node name="enemysub_two" parent="." unique_id=1871379930 instance=ExtResource("11_xgj7f")]
+
+[node name="background_details" parent="." unique_id=934280213 instance=ExtResource("11_1ixhq")]
+
+[node name="lives_ui" type="CanvasLayer" parent="." unique_id=653672218]
+script = ExtResource("12_ned8m")
+life_icon_scene = ExtResource("13_a0hus")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="lives_ui" unique_id=1498629858]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 60.0
+grow_horizontal = 2
+scale = Vector2(0.8, 0.760001)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="life_icon" parent="lives_ui/HBoxContainer" unique_id=304009013 instance=ExtResource("13_a0hus")]
+layout_mode = 2
+
+[node name="divers_ui" type="CanvasLayer" parent="." unique_id=1391721545]
+layer = 8
+script = ExtResource("15_j8ed8")
+diver_icon_scene = ExtResource("16_j8ed8")
+
+[node name="diversicon" parent="divers_ui" unique_id=1739813420 instance=ExtResource("16_j8ed8")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="score_ui" type="CanvasLayer" parent="." unique_id=1698205103 groups=["ui"]]
+script = ExtResource("21_n2vvr")
+number_images = Array[Texture2D]([ExtResource("22_xq0gf"), ExtResource("23_dbrm6"), ExtResource("24_ddphc"), ExtResource("25_rugoh"), ExtResource("26_wh5tp"), ExtResource("27_q7pkb"), ExtResource("28_1tgwm"), ExtResource("29_gv3q7"), ExtResource("30_3ggng"), ExtResource("31_rf3aw")])
+
+[node name="HBoxContainer" type="HBoxContainer" parent="score_ui" unique_id=464115213]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 32.0
+offset_right = 20.0
+offset_bottom = 72.0
+grow_horizontal = 2
+scale = Vector2(1, 0.8239522)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="digit0" type="TextureRect" parent="score_ui/HBoxContainer" unique_id=948371646]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="digit1" type="TextureRect" parent="score_ui/HBoxContainer" unique_id=1066041803]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="digit2" type="TextureRect" parent="score_ui/HBoxContainer" unique_id=1569465884]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="digit3" type="TextureRect" parent="score_ui/HBoxContainer" unique_id=2070774085]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="digit4" type="TextureRect" parent="score_ui/HBoxContainer" unique_id=157293557]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="digit5" type="TextureRect" parent="score_ui/HBoxContainer" unique_id=1369491513]
+layout_mode = 2
+stretch_mode = 5
+
+[connection signal="oxygen_changed" from="Submarine" to="oxygen_ui/UI/TextureProgressBar" method="_on_submarine_oxygen_changed"]
+
+[editable path="oxygen_ui"]

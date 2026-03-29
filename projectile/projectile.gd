@@ -1,0 +1,14 @@
+extends Area2D
+
+signal enemy_hit(score)
+
+@export var speed = 2000
+var direction = Vector2.ZERO
+
+func _process(delta):
+	position.x += speed * delta * direction.x
+		
+		
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	queue_free()
+	pass

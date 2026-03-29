@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://byhnwhm3b0ckx"]
+
+[ext_resource type="Script" uid="uid://1kjgqorun07" path="res://enemysub/enemysub.gd" id="1_agvd4"]
+[ext_resource type="Texture2D" uid="uid://bus3km7uhd803" path="res://enemysub/Enemyub.png" id="2_l671s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aws21"]
+atlas = ExtResource("2_l671s")
+region = Rect2(0, 0, 158, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utwj8"]
+atlas = ExtResource("2_l671s")
+region = Rect2(158, 0, 158, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8ilk"]
+atlas = ExtResource("2_l671s")
+region = Rect2(316, 0, 158, 79)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xgj7f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aws21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utwj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8ilk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agvd4"]
+radius = 20.0
+height = 136.0
+
+[node name="enemysub" type="Area2D" unique_id=1448156138 groups=["enemies"]]
+script = ExtResource("1_agvd4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1923557946]
+sprite_frames = SubResource("SpriteFrames_xgj7f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1602392605]
+position = Vector2(0, 13)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_agvd4")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

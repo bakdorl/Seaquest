@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dg2n2vrf5n5vd"]
+
+[ext_resource type="Texture2D" uid="uid://c4qdlv8syo752" path="res://UI/lives/live_icon.png" id="1_vxsty"]
+
+[node name="lifeIcon" type="TextureRect" unique_id=1002588254]
+texture = ExtResource("1_vxsty")
+stretch_mode = 3
