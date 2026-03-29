@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://dg2n2vrf5n5vd" path="res://UI/lives/life_icon.tscn" id="13_a0hus"]
 [ext_resource type="Script" uid="uid://bmiu32che6ytx" path="res://divers_ui.gd" id="15_j8ed8"]
 [ext_resource type="PackedScene" uid="uid://b6les2v2b7bcj" path="res://diversicon.tscn" id="16_j8ed8"]
-[ext_resource type="Texture2D" uid="uid://c4qdlv8syo752" path="res://UI/lives/live_icon.png" id="18_7120d"]
 [ext_resource type="Script" uid="uid://5oeaihg18u46" path="res://score_ui.gd" id="21_n2vvr"]
 [ext_resource type="Texture2D" uid="uid://dsfghtuficbuk" path="res://UI/score/Background 10.png" id="22_xq0gf"]
 [ext_resource type="Texture2D" uid="uid://bqi7w8ppy4k4c" path="res://UI/score/Background.png" id="23_dbrm6"]
@@ -97,7 +96,6 @@ alignment = 1
 
 [node name="life_icon" parent="lives_ui/HBoxContainer" unique_id=304009013 instance=ExtResource("13_a0hus")]
 layout_mode = 2
-texture = ExtResource("18_7120d")
 
 [node name="divers_ui" type="CanvasLayer" parent="." unique_id=1391721545]
 layer = 8
@@ -130,7 +128,7 @@ offset_top = 32.0
 offset_right = 20.0
 offset_bottom = 72.0
 grow_horizontal = 2
-scale = Vector2(1, 0.84000003)
+scale = Vector2(1, 0.8239522)
 size_flags_horizontal = 4
 size_flags_vertical = 0
 alignment = 1

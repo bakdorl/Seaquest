@@ -6,7 +6,7 @@ extends CanvasLayer
 func _ready():
 	lives_container.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP, Control.PRESET_MODE_KEEP_WIDTH)
 	lives_container.alignment = BoxContainer.ALIGNMENT_CENTER
-	lives_container.position.y = 20 
+	lives_container.position.y = 80
 
 	var submarine = get_tree().current_scene.find_child("Submarine", true, false)
 	if submarine:
