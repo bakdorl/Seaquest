@@ -27,9 +27,6 @@ func _ready():
 	$AnimatedSprite2D.play("default")
 	lives_changed.emit(lives)
 	await get_tree().process_frame
-	#var ui = get_tree().get_first_node_in_group("ui")
-	#if ui:
-		#score_changed.connect(ui.update_display)
 
 func _physics_process(_delta: float) -> void:
 	if passive_state == true or is_dead:
@@ -116,7 +113,6 @@ func pick_up_diver():
 		divers_changed.emit(divers_collected)
 	else:
 		print("Submarine full")
-		# e fazer parar de subir
 
 func deposit_divers():
 	if divers_collected > 0:
@@ -190,10 +186,3 @@ func give_extra_life():
 	if lives < MAX_LIVES:
 		lives += 1
 		lives_changed.emit(lives)
-		
-
-		
-		
-		
-		
-		

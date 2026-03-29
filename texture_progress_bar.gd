@@ -15,7 +15,7 @@ func _on_submarine_oxygen_changed(new_value):
 		is_low_oxygen = true
 	else:
 		is_low_oxygen = false
-		self.tint_progress = original_color # Reset to original
+		self.tint_progress = original_color 
 
 func _process(delta):
 	if is_low_oxygen:
