@@ -1,8 +1,8 @@
 extends Area2D
 
 @export var speed = 200.0
-@export var amplitude = 20 #15.0  
-@export var frequency = 4 #3.5   
+@export var amplitude = 20
+@export var frequency = 4 
 
 var direction = -1 
 var initial_y = 0.0
@@ -24,5 +24,6 @@ func _process(delta):
 
 func _on_area_entered(area):
 	if area.is_in_group("projectiles"):
+		GameState.player_score += 20
 		area.queue_free()
 		queue_free()

@@ -6,7 +6,6 @@ extends Area2D
 var direction = -1 
 var shoot_timer = Timer.new()
 
-
 func _ready():
 	$AnimatedSprite2D.play("default")
 	$AnimatedSprite2D.flip_h = (direction == 1)
@@ -24,6 +23,7 @@ func _process(delta):
 
 func _on_area_entered(area):
 	if area.is_in_group("projectiles"):
+		GameState.player_score += 20
 		area.queue_free()
 		queue_free()
 

@@ -16,5 +16,6 @@ func _process(delta):
 
 func _on_area_entered(area):
 	if area.is_in_group("projectiles"):
+		GameState.player_score += 20
 		area.queue_free()
 		queue_free()

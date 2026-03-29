@@ -15,6 +15,10 @@ run/main_scene="res://ocean.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameState="*uid://cg7yh658a6sde"
+
 [display]
 
 window/size/viewport_width=1920

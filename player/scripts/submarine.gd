@@ -6,9 +6,6 @@ signal oxygen_changed(value)
 signal lives_changed(value)
 signal divers_changed(count)
 signal submarine_exploded
-signal score_changed(new_score)
-
-var score: int = 0
 
 const SPEED = 450.0
 const MAX_DIVERS: int = 6
@@ -30,9 +27,9 @@ func _ready():
 	$AnimatedSprite2D.play("default")
 	lives_changed.emit(lives)
 	await get_tree().process_frame
-	var ui = get_tree().get_first_node_in_group("ui")
-	if ui:
-		score_changed.connect(ui.update_display)
+	#var ui = get_tree().get_first_node_in_group("ui")
+	#if ui:
+		#score_changed.connect(ui.update_display)
 
 func _physics_process(_delta: float) -> void:
 	if passive_state == true or is_dead:
@@ -186,9 +183,9 @@ func handle_full_delivery():
 	current_oxygen = 100.0
 
 func add_score(amount: int):
-	score += amount
-	score_changed.emit(score)
-	if int(score / 10000) > int((score - amount) / 10000):
+	GameState.player_score += amount
+	#score_changed.emit(score)
+	if int(GameState.player_score / 10000) > int((GameState.player_score - amount) / 10000):
 		give_extra_life()
 
 func give_extra_life():

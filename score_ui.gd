@@ -5,6 +5,9 @@ extends CanvasLayer
 
 func _ready():
 	update_display(0)
+	
+func _process(delta: float) -> void:
+	update_display(GameState.player_score)
 
 func update_display(new_score: int):
 	var display_score = min(new_score, 999999)
