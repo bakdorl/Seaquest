@@ -186,3 +186,6 @@ func give_extra_life():
 	if lives < MAX_LIVES:
 		lives += 1
 		lives_changed.emit(lives)
+		
+		
+		
