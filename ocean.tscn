@@ -89,6 +89,7 @@ offset_top = 20.0
 offset_right = 20.0
 offset_bottom = 60.0
 grow_horizontal = 2
+scale = Vector2(0.8, 0.760001)
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_constants/separation = 5

@@ -33,7 +33,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fchcq"]
-size = Vector2(148, 50)
+size = Vector2(132, 45)
 
 [node name="enemysub_two" type="Area2D" unique_id=1871379930]
 script = ExtResource("1_8geyn")
@@ -42,5 +42,5 @@ script = ExtResource("1_8geyn")
 sprite_frames = SubResource("SpriteFrames_0ubux")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=383908228]
-position = Vector2(0, 3)
+position = Vector2(-2, 5.5)
 shape = SubResource("RectangleShape2D_fchcq")

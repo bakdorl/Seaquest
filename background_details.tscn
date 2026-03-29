@@ -214,6 +214,7 @@ position = Vector2(962, 540)
 texture = ExtResource("4_rxbuu")
 
 [node name="MonstroDoLagoMessi" type="AnimatedSprite2D" parent="." unique_id=388579909]
+z_index = 15
 position = Vector2(1781, 540)
 sprite_frames = SubResource("SpriteFrames_t5xnv")
 autoplay = "default"
@@ -221,6 +222,7 @@ frame = 12
 speed_scale = 1.5
 
 [node name="MonstroDoLagoMessi2" type="AnimatedSprite2D" parent="." unique_id=1781211035]
+z_index = 15
 position = Vector2(139, 540)
 sprite_frames = SubResource("SpriteFrames_t5xnv")
 autoplay = "default"
