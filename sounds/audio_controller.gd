@@ -1,7 +1,7 @@
 extends Node2D
 
-func _ready():
-	play_music()
+#func _ready():
+	#play_music()
 
 func play_music():
 	$music.play()
@@ -20,3 +20,6 @@ func play_pickup_diver() -> void:
 
 func play_alarm() -> void:
 	$alarm.play()
+
+func stop_music():
+	$music.stop()

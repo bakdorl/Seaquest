@@ -160,6 +160,7 @@ func respawn():
 func game_over():
 	submarine_exploded.emit()
 	divers_changed.emit(divers_collected)
+	get_tree().change_scene_to_file("res://menu.tscn")
 	queue_free()
 
 func handle_full_delivery():

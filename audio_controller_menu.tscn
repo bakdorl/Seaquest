@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dtwdxgwl8urml"]
+
+[ext_resource type="Script" uid="uid://ba3s7jhtfkbj2" path="res://audio_controller_menu.gd" id="1_wa26k"]
+[ext_resource type="AudioStream" uid="uid://bltibyvahkkqa" path="res://menu/music/menu_music.mp3" id="2_wa26k"]
+[ext_resource type="AudioStream" uid="uid://dr1ao62pfwwdm" path="res://menu/sounds/glassclinkmenu.mp3" id="3_kbuuy"]
+
+[node name="audio_controller_menu" type="Node2D" unique_id=1000288120]
+script = ExtResource("1_wa26k")
+
+[node name="menu_music" type="AudioStreamPlayer2D" parent="." unique_id=1182680199]
+stream = ExtResource("2_wa26k")
+volume_db = 13.01
+
+[node name="button_sound" type="AudioStreamPlayer2D" parent="." unique_id=310362747]
+stream = ExtResource("3_kbuuy")
+volume_db = 10.558
