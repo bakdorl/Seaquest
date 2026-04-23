@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Seaquest"
+config/name="Seaquest Forever Reborn Remastered Legacy"
 run/main_scene="uid://dyorekfwiytea"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://bbamyi2xnns16"
 
 [autoload]
 
@@ -25,6 +25,7 @@ AudioControllerMenu="*uid://dtwdxgwl8urml"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/resizable=false
 
 [global_group]
 
